@@ -41,509 +41,435 @@
         </TextBlock>
 
         <!-- Total positive and negatives -->
-        <Grid Grid.Row="1" Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-            </Grid.RowDefinitions>
+        <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource MatrixElementBorder}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
 
-            <TextBlock Text="Total Population" Grid.Row="0"  FontSize="16"
+                <TextBlock Text="Total Population" Grid.Row="0"  FontSize="16"
                        HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                        TextAlignment="Center" TextWrapping="Wrap"/>
 
-            <TextBlock 
+                <TextBlock 
                 x:Name="TotalPopulation" Grid.Row="1"
                 Text="{Binding TotalPopulation, UpdateSourceTrigger=PropertyChanged}" 
                 FontSize="24" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
                 Background="Transparent" TextAlignment="Center"/>
-        </Grid>
+            </Grid>
+        </Border>
 
         <!-- Positive, Negative, Predicted Positive, and Predicted Negative -->
-        <Grid Grid.Row="1" Grid.Column="2" Background="LightGoldenrodYellow">
-            <TextBlock Text="Predicted Positive" Grid.Row="1" Grid.Column="2" FontSize="17" 
-                   HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"/>
-        </Grid>
+        <Border Grid.Row="1" Grid.Column="2" Style="{StaticResource MatrixElementBorder}" Background="LightGoldenrodYellow">
+            <Grid>
+                <TextBlock Text="Predicted Positive" Grid.Row="1" Grid.Column="2" Style="{StaticResource NameBlock}" 
+                       VerticalAlignment="Center" />
+            </Grid>
+        </Border>
 
+        <Border Grid.Row="2" Grid.Column="1" Style="{StaticResource MatrixElementBorder}" Background="LightGoldenrodYellow">
+            <Grid>
+                <TextBlock Text="Positive" Grid.Row="2" Grid.Column="1" Style="{StaticResource NameBlock}" 
+                       VerticalAlignment="Center" />
+            </Grid>
+        </Border>
 
-        <Grid Grid.Row="2" Grid.Column="1" Background="LightGoldenrodYellow">
-            <TextBlock Text="Positive" Grid.Row="2" Grid.Column="1" FontSize="17" 
-                   HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"/>
-        </Grid>
+        <Border Grid.Row="3" Grid.Column="1" Style="{StaticResource MatrixElementBorder}" Background="CornflowerBlue">
+            <Grid>
+                <TextBlock Text="Negative" Grid.Row="3" Grid.Column="1" Style="{StaticResource NameBlock}" 
+                       VerticalAlignment="Center" />
+            </Grid>
+        </Border>
 
-        <Grid Grid.Row="3" Grid.Column="1" Background="CornflowerBlue">
-            <TextBlock Text="Negative" Grid.Row="3" Grid.Column="1" FontSize="16" 
-                   HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"/>
-        </Grid>
-
-        <Grid Grid.Row="1" Grid.Column="3" Background="CornflowerBlue">
-            <TextBlock Text="Predicted Negative" Grid.Row="1" Grid.Column="3" FontSize="16" 
-                   HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap"/>
-        </Grid>
+        <Border Grid.Row="1" Grid.Column="3" Style="{StaticResource MatrixElementBorder}"  Background="CornflowerBlue">
+            <Grid>
+                <TextBlock Text="Predicted Negative" Grid.Row="1" Grid.Column="3" Style="{StaticResource NameBlock}"
+                       VerticalAlignment="Center" />
+            </Grid>
+        </Border>
 
         <!-- Confusion matrix grid elements -->
         <!-- True positives -->
-        <Grid Grid.Row="2" Grid.Column="2" Background="DarkSeaGreen">
-          
-                <Grid.RowDefinitions>
-                <RowDefinition Height="3*"/>
-                <RowDefinition Height="2*"/>
-            </Grid.RowDefinitions>
-           
-
-            <TextBlock Text="True positives" Grid.Row="0" FontSize="16"
-                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                       TextAlignment="Center"/>
-            <TextBox 
-                x:Name="TruePositives" Text="{Binding TruePositives, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
-                Grid.Row="1" FontSize="24"
-                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-                PreviewTextInput="ConfusionGridElement_PreviewTextInput" Background="Transparent"/>
-        </Grid>
-
-        <!-- False negatives -->
-        <Grid Grid.Row="2" Grid.Column="3" Background="IndianRed">
-            <Grid.RowDefinitions>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="2*"/>
-                </Grid.RowDefinitions>
-
-                <TextBlock Text="False negatives" Grid.Row="0" FontSize="16"
-                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                       TextAlignment="Center"/>
-            <TextBox 
-                x:Name="FalseNegatives" Text="{Binding FalseNegatives, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
-                Grid.Row="1" FontSize="24" 
-                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-                PreviewTextInput="ConfusionGridElement_PreviewTextInput" Background="Transparent"/>
-        </Grid>
-
-        <!-- False positives -->
-        <Grid Grid.Row="3" Grid.Column="2" Background="IndianRed">
-
-            <Grid.RowDefinitions>
-                <RowDefinition Height="3*"/>
-                <RowDefinition Height="2*"/>
-            </Grid.RowDefinitions>
-
-            <TextBlock Text="False positives" Grid.Row="0" FontSize="16"
-                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                       TextAlignment="Center"/>
-            <TextBox 
-                x:Name="FalsePositives" Text="{Binding FalsePositives, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
-                Grid.Row="1" FontSize="24" 
-                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-                PreviewTextInput="ConfusionGridElement_PreviewTextInput" Background="Transparent"/>
-        </Grid>
-
-        <!-- True negatives -->
-        <Grid Grid.Row="3" Grid.Column="3" Background="DarkSeaGreen">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="3*"/>
-                <RowDefinition Height="2*"/>
-            </Grid.RowDefinitions>
-
-
-            <TextBlock Text="True negatives" Grid.Row="0" FontSize="16"
-                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                       TextAlignment="Center"/>
-            <TextBox
-                x:Name="TrueNegatives" Text="{Binding TrueNegatives, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
-                Grid.Row="1" FontSize="24" 
-                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
-                PreviewTextInput="ConfusionGridElement_PreviewTextInput" Background="Transparent"/>
-        </Grid>
-
-        <!-- True positive rate -->
-        <Grid Grid.Row="2" Grid.Column="4">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="3*"/>
-                <RowDefinition Height="2*"/>
-            </Grid.RowDefinitions>
-
-            <TextBlock Text="True Positive Rate" Grid.Row="0" FontSize="16"
-                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                       TextAlignment="Center"/>
-            <TextBlock
-                x:Name="TruePositiveRate" Text="{Binding TruePositiveRate, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" 
-                Grid.Row="1" FontSize="24" 
-                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                Background="Transparent" TextAlignment="Center"/>
-        </Grid>
-
-        <!-- False negative rate -->
-        <Grid Grid.Row="2" Grid.Column="5">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="3*"/>
-                <RowDefinition Height="2*"/>
-            </Grid.RowDefinitions>
-
-            <TextBlock Text="False negative rate" Grid.Row="0" FontSize="16"
-                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                       TextAlignment="Center"/>
-            <TextBlock
-                x:Name="FalseNegativeRate" Grid.Row="1" 
-                Text="{Binding FalseNegativeRate, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" 
-                FontSize="24" 
-                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                Background="Transparent" TextAlignment="Center"/>
-        </Grid>
-
-        <!-- False positive rate -->
-        <Grid Grid.Row="3" Grid.Column="4">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="3*"/>
-                <RowDefinition Height="2*"/>
-            </Grid.RowDefinitions>
-
-            <TextBlock Text="False positive rate" Grid.Row="0" FontSize="16"
-                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                       TextAlignment="Center"/>
-            <TextBlock
-                x:Name="FalsePositiveRate" Grid.Row="1" 
-                Text="{Binding FalsePositiveRate, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" 
-                FontSize="24" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                Background="Transparent" TextAlignment="Center"/>
-        </Grid>
-
-        <!-- True negative rate -->
-        <Grid Grid.Row="3" Grid.Column="5">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="3*"/>
-                <RowDefinition Height="2*"/>
-            </Grid.RowDefinitions>
-
-            <TextBlock Text="True negative rate" Grid.Row="0"  FontSize="16"
-                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                       TextAlignment="Center"/>
-
-            <TextBlock 
-                x:Name="TrueNegativeRate" Grid.Row="1"
-                Text="{Binding TrueNegativeRate, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" 
-                FontSize="24" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                Background="Transparent" TextAlignment="Center"/>
-        </Grid>
-
-        <!-- Informedness -->
-        <Grid Grid.Row="1" Grid.Column="4">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="3*"/>
-                <RowDefinition Height="2*"/>
-            </Grid.RowDefinitions>
-
-            <TextBlock Text="Informedness" Grid.Row="0"  FontSize="16"
-                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                       TextAlignment="Center"/>
-
-            <TextBlock 
-                x:Name="Informedness" Grid.Row="1"
-                Text="{Binding Informedness, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" 
-                FontSize="24" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                Background="Transparent" TextAlignment="Center"/>
-        </Grid>
-
-        <!-- Prevalence threshold -->
-        <Grid Grid.Row="1" Grid.Column="5">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="3*"/>
-                <RowDefinition Height="2*"/>
-            </Grid.RowDefinitions>
-
-            <TextBlock Text="Prevalence Threshold" Grid.Row="0"  FontSize="16"
-                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                       TextAlignment="Center"/>
-
-            <TextBlock 
-                x:Name="PrevalenceThreshold" Grid.Row="1"
-                Text="{Binding PrevalenceThreshold, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" 
-                FontSize="24" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                Background="Transparent" TextAlignment="Center"/>
-        </Grid>
-
-        <!-- Prevalence -->
-        <Grid Grid.Row="4" Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="3*"/>
-                <RowDefinition Height="2*"/>
-            </Grid.RowDefinitions>
-
-            <TextBlock Text="Prevalence" Grid.Row="0"  FontSize="16"
-                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                       TextAlignment="Center"/>
-
-            <TextBlock 
-                x:Name="Prevalence" Grid.Row="1"
-                Text="{Binding Prevalence, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" 
-                FontSize="24" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                Background="Transparent" TextAlignment="Center"/>
-        </Grid>
-
-        <!-- Accuracy -->
-        <Grid Grid.Row="5" Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="3*"/>
-                <RowDefinition Height="2*"/>
-            </Grid.RowDefinitions>
-
-            <TextBlock Text="Accuracy" Grid.Row="0"  FontSize="16"
-                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                       TextAlignment="Center"/>
-
-            <TextBlock 
-                x:Name="Accuracy" Grid.Row="1"
-                Text="{Binding Accuracy, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" 
-                FontSize="24" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                Background="Transparent" TextAlignment="Center"/>
-        </Grid>
-
-        <!-- Positive predictive value -->
-        <Grid Grid.Row="4" Grid.Column="2">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="3*"/>
-                <RowDefinition Height="2*"/>
-            </Grid.RowDefinitions>
-
-            <TextBlock Text="Positive Predictive Value" Grid.Row="0"  FontSize="16"
-                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                       TextAlignment="Center" TextWrapping="Wrap"/>
-
-            <TextBlock 
-                x:Name="PositivePredictiveValue" Grid.Row="1"
-                Text="{Binding PositivePredictiveValue, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" 
-                FontSize="24" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                Background="Transparent" TextAlignment="Center"/>
-        </Grid>
-
-        <!-- False omission rate -->
-        <Grid Grid.Row="4" Grid.Column="3">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="3*"/>
-                <RowDefinition Height="2*"/>
-            </Grid.RowDefinitions>
-
-            <TextBlock Text="False Omission Rate" Grid.Row="0"  FontSize="16"
-                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                       TextAlignment="Center"/>
-
-            <TextBlock 
-                x:Name="FalseOmissionRate" Grid.Row="1"
-                Text="{Binding FalseOmissionRate, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" 
-                FontSize="24" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                Background="Transparent" TextAlignment="Center"/>
-        </Grid>
-
-        <!-- False discovery rate -->
-        <Grid Grid.Row="5" Grid.Column="2">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="3*"/>
-                <RowDefinition Height="2*"/>
-            </Grid.RowDefinitions>
-
-            <TextBlock Text="False Discovery Rate" Grid.Row="0"  FontSize="16"
-                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                       TextAlignment="Center" TextWrapping="Wrap"/>
-
-            <TextBlock 
-                x:Name="FalseDiscoveryRate" Grid.Row="1"
-                Text="{Binding FalseDiscoveryRate, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" 
-                FontSize="24" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                Background="Transparent" TextAlignment="Center"/>
-        </Grid>
-
-        <!-- Negative predictive value -->
-        <Grid Grid.Row="5" Grid.Column="3">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="3*"/>
-                <RowDefinition Height="2*"/>
-            </Grid.RowDefinitions>
-
-            <TextBlock Text="Negative Predictive Value" Grid.Row="0"  FontSize="16"
-                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                       TextAlignment="Center" TextWrapping="Wrap"/>
-
-            <TextBlock 
-                x:Name="NegativePredictiveValue" Grid.Row="1"
-                Text="{Binding NegativePredictiveValue, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" 
-                FontSize="24" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                Background="Transparent" TextAlignment="Center" />
-        </Grid>
-
-        <!-- Positive likelihood ratio -->
-        <Border BorderBrush="Black" BorderThickness="2" Grid.Row="4" Grid.Column="4" Margin="2">
-            <Grid Grid.Row="4" Grid.Column="4">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="2*"/>
-                </Grid.RowDefinitions>
-
-                <TextBlock Text="Positive Likelihood Ratio" Grid.Row="0"  FontSize="16"
-                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                       TextAlignment="Center" TextWrapping="Wrap"/>
-
-                <TextBlock 
-                x:Name="PositiveLikelihoodRatio" Grid.Row="1"
-                Text="{Binding PositiveLikelihoodRatio, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" 
-                FontSize="24" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                Background="Transparent" TextAlignment="Center" />
-            </Grid>
-        </Border>
-
-
-        <!-- Negative likelihood ratio -->
-        <Border BorderBrush="Black" BorderThickness="2" Grid.Row="4" Grid.Column="5" Margin="2">
-            <Grid >
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="3*"/>
-                    <RowDefinition Height="2*"/>
-                </Grid.RowDefinitions>
-
-                <TextBlock Text="Negative likelihood ratio" Grid.Row="0"  FontSize="16"
-                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                       TextAlignment="Center" TextWrapping="Wrap"/>
-
-                <TextBlock 
-                x:Name="NegativeLikelihoodRatio" Grid.Row="1"
-                Text="{Binding NegativeLikelihoodRatio, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" 
-                FontSize="24" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                Background="Transparent" TextAlignment="Center" />
-            </Grid>
-        </Border>
-
-
-        <!-- Markedness -->
-        <Border BorderBrush="Black" BorderThickness="2" Grid.Row="5" Grid.Column="4" Margin="2">
+        <Border Grid.Row="2" Grid.Column="2" Style="{StaticResource MatrixElementBorder}" Background="DarkSeaGreen">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="3*"/>
                     <RowDefinition Height="2*"/>
                 </Grid.RowDefinitions>
 
-                <TextBlock Text="Markedness" Grid.Row="0"  FontSize="16"
-                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                       TextAlignment="Center" TextWrapping="Wrap"/>
+                <TextBlock Text="True positives" Grid.Row="0" Style="{StaticResource NameBlock}" />
+                <TextBox 
+                x:Name="TruePositives" Text="{Binding TruePositives, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                Grid.Row="1" FontSize="24"
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                PreviewTextInput="ConfusionGridElement_PreviewTextInput" Background="Transparent"/>
+            </Grid>
+        </Border>
 
-                <TextBlock 
-                x:Name="Markedness" Grid.Row="1"
-                Text="{Binding Markedness, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" 
-                FontSize="24" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                Background="Transparent" TextAlignment="Center" />
+        <!-- False negatives -->
+        <Border Grid.Row="2" Grid.Column="3" Style="{StaticResource MatrixElementBorder}" Background="IndianRed">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="False negatives" Grid.Row="0" Style="{StaticResource NameBlock}" />
+                <TextBox 
+                x:Name="FalseNegatives" Text="{Binding FalseNegatives, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                Grid.Row="1" FontSize="24" 
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                PreviewTextInput="ConfusionGridElement_PreviewTextInput" Background="Transparent"/>
+            </Grid>
+        </Border>
+
+        <!-- False positives -->
+        <Border Grid.Row="3" Grid.Column="2" Style="{StaticResource MatrixElementBorder}" Background="IndianRed">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="False positives" Grid.Row="0" Style="{StaticResource NameBlock}" />
+                <TextBox 
+                x:Name="FalsePositives" Text="{Binding FalsePositives, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                Grid.Row="1" FontSize="24" 
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                PreviewTextInput="ConfusionGridElement_PreviewTextInput" Background="Transparent"/>
+            </Grid>
+        </Border>
+
+        <!-- True negatives -->
+        <Border Grid.Row="3" Grid.Column="3" Style="{StaticResource MatrixElementBorder}" Background="DarkSeaGreen">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="True negatives" Grid.Row="0" Style="{StaticResource NameBlock}" />
+                <TextBox
+                x:Name="TrueNegatives" Text="{Binding TrueNegatives, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                Grid.Row="1" FontSize="24" 
+                HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
+                HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                PreviewTextInput="ConfusionGridElement_PreviewTextInput" Background="Transparent"/>
+            </Grid>
+        </Border>
+
+        <!-- True positive rate -->
+        <Border Grid.Row="2" Grid.Column="4" Style="{StaticResource MatrixElementBorder}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="True Positive Rate" Grid.Row="0" Style="{StaticResource NameBlock}" />
+                <TextBlock x:Name="TruePositiveRate" Grid.Row="1" Style="{StaticResource ScoreBlock}"
+                       Text="{Binding TruePositiveRate, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+        </Border>
+
+        <!-- False negative rate -->
+        <Border Grid.Row="2" Grid.Column="5" Style="{StaticResource MatrixElementBorder}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="False negative rate" Grid.Row="0" Style="{StaticResource NameBlock}" />
+                <TextBlock x:Name="FalseNegativeRate" Grid.Row="1"  Style="{StaticResource ScoreBlock}"
+                       Text="{Binding FalseNegativeRate, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+        </Border>
+
+        <!-- False positive rate -->
+        <Border Grid.Row="3" Grid.Column="4" Style="{StaticResource MatrixElementBorder}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="False positive rate" Grid.Row="0" Style="{StaticResource NameBlock}" />
+                <TextBlock x:Name="FalsePositiveRate" Grid.Row="1" Style="{StaticResource ScoreBlock}"
+                       Text="{Binding FalsePositiveRate, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+        </Border>
+
+        <!-- True negative rate -->
+        <Border Grid.Row="3" Grid.Column="5" Style="{StaticResource MatrixElementBorder}" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="True negative rate" Grid.Row="0"  FontSize="16"
+                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                       TextAlignment="Center"/>
+
+                <TextBlock x:Name="TrueNegativeRate" Grid.Row="1" Style="{StaticResource ScoreBlock}"
+                       Text="{Binding TrueNegativeRate, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" />
+
+            </Grid>
+        </Border>
+
+        <!-- Informedness -->
+
+        <Border Grid.Row="1" Grid.Column="4" Style="{StaticResource MatrixElementBorder}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Informedness" Grid.Row="0"  FontSize="16"
+                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                       TextAlignment="Center"/>
+
+                <TextBlock x:Name="Informedness" Grid.Row="1" Style="{StaticResource ScoreBlock}"
+                           Text="{Binding Informedness, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+        </Border>
+
+        <!-- Prevalence threshold -->
+        <Border Grid.Row="1" Grid.Column="5" Style="{StaticResource MatrixElementBorder}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Prevalence Threshold" Grid.Row="0" Style="{StaticResource NameBlock}" />
+
+                <TextBlock x:Name="PrevalenceThreshold" Grid.Row="1" Style="{StaticResource ScoreBlock}"
+                           Text="{Binding PrevalenceThreshold, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" Height="29" VerticalAlignment="Bottom" />
+            </Grid>
+        </Border>
+
+        <!-- Prevalence -->
+        <Border Grid.Row="4" Grid.Column="1" Style="{StaticResource MatrixElementBorder}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Prevalence" Grid.Row="0" Style="{StaticResource NameBlock}" />
+
+                <TextBlock x:Name="Prevalence" Grid.Row="1" Style="{StaticResource ScoreBlock}"
+                       Text="{Binding Prevalence, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+        </Border>
+
+        <!-- Accuracy -->
+        <Border Grid.Row="5" Grid.Column="1" Style="{StaticResource MatrixElementBorder}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Accuracy" Grid.Row="0" Style="{StaticResource NameBlock}"/>
+                <TextBlock x:Name="Accuracy" Grid.Row="1" Style="{StaticResource ScoreBlock}"
+                       Text="{Binding Accuracy, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+        </Border>
+
+        <!-- Positive predictive value -->
+        <Border Grid.Row="4" Grid.Column="2" Style="{StaticResource MatrixElementBorder}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Positive Predictive Value" Grid.Row="0" Style="{StaticResource NameBlock}"/>
+                <TextBlock x:Name="PositivePredictiveValue" Grid.Row="1" Style="{StaticResource ScoreBlock}"
+                           Text="{Binding PositivePredictiveValue, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+        </Border>
+
+        <!-- False omission rate -->
+        <Border Grid.Row="4" Grid.Column="3" Style="{StaticResource MatrixElementBorder}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="False Omission Rate" Grid.Row="0" Style="{StaticResource NameBlock}" />
+                <TextBlock x:Name="FalseOmissionRate" Grid.Row="1" Style="{StaticResource ScoreBlock}" 
+                       Text="{Binding FalseOmissionRate, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+        </Border>
+
+
+        <!-- False discovery rate -->
+        <Border Grid.Row="5" Grid.Column="2" Style="{StaticResource MatrixElementBorder}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="False Discovery Rate" Grid.Row="0" Style="{StaticResource NameBlock}" />
+                <TextBlock x:Name="FalseDiscoveryRate" Grid.Row="1" Style="{StaticResource ScoreBlock}"
+                       Text="{Binding FalseDiscoveryRate, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+        </Border>
+
+        <!-- Negative predictive value -->
+        <Border Grid.Row="5" Grid.Column="3" Style="{StaticResource MatrixElementBorder}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Negative Predictive Value" Grid.Row="0" Style="{StaticResource NameBlock}" />
+                <TextBlock x:Name="NegativePredictiveValue" Grid.Row="1" Style="{StaticResource ScoreBlock}"
+                       Text="{Binding NegativePredictiveValue, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+        </Border>
+
+        <!-- Positive likelihood ratio -->
+        <Border Grid.Row="4" Grid.Column="4" Style="{StaticResource MatrixElementBorder}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Positive Likelihood Ratio" Grid.Row="0" Style="{StaticResource NameBlock}" />
+                <TextBlock x:Name="PositiveLikelihoodRatio" Grid.Row="1" Style="{StaticResource ScoreBlock}"
+                           Text="{Binding PositiveLikelihoodRatio, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+        </Border>
+
+
+        <!-- Negative likelihood ratio -->
+        <Border Grid.Row="4" Grid.Column="5" Style="{StaticResource MatrixElementBorder}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Negative likelihood ratio" Grid.Row="0" Style="{StaticResource NameBlock}" />
+                <TextBlock x:Name="NegativeLikelihoodRatio" Grid.Row="1" Style="{StaticResource ScoreBlock}"
+                           Text="{Binding NegativeLikelihoodRatio, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+        </Border>
+
+
+        <!-- Markedness -->
+        <Border Grid.Row="5" Grid.Column="4" Style="{StaticResource MatrixElementBorder}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Markedness" Grid.Row="0" Style="{StaticResource NameBlock}" />
+                <TextBlock x:Name="Markedness" Grid.Row="1" Style="{StaticResource ScoreBlock}"
+                           Text="{Binding Markedness, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" />
             </Grid>
         </Border>
 
 
         <!-- Diagnostics odds ratio -->
-        <Border BorderBrush="Black" BorderThickness="2" Grid.Row="5" Grid.Column="5" Margin="2">
+        <Border Grid.Row="5" Grid.Column="5" Style="{StaticResource MatrixElementBorder}">
             <Grid Grid.Row="5" Grid.Column="5">
                 <Grid.RowDefinitions>
                     <RowDefinition />
                     <RowDefinition />
                 </Grid.RowDefinitions>
 
-                <TextBlock Text="Diagnostic Odds Ratio" Grid.Row="0"  FontSize="16"
-                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                       TextAlignment="Center" TextWrapping="Wrap"/>
-
-                <TextBlock 
-                x:Name="DiagnosticOddsRatio" Grid.Row="1"
-                Text="{Binding DiagnosticOddsRatio, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" 
-                FontSize="24" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                Background="Transparent" TextAlignment="Center" />
+                <TextBlock Text="Diagnostic Odds Ratio" Grid.Row="0" Style="{StaticResource NameBlock}" />
+                <TextBlock x:Name="DiagnosticOddsRatio" Grid.Row="1" Style="{StaticResource ScoreBlock}"
+                           Text="{Binding DiagnosticOddsRatio, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" />
             </Grid>
         </Border>
 
 
         <!-- Balanced accuracy -->
-        <Grid Grid.Row="6" Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-            </Grid.RowDefinitions>
+        <Border Grid.Row="6" Grid.Column="1" Style="{StaticResource MatrixElementBorder}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
 
-            <TextBlock Text="Diagnostic Odds Ratio" Grid.Row="0"  FontSize="16"
-                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                       TextAlignment="Center" TextWrapping="Wrap"/>
-
-            <TextBlock 
-                x:Name="BalancedAccuracy" Grid.Row="1"
-                Text="{Binding BalancedAccuracy, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" 
-                FontSize="24" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                Background="Transparent" TextAlignment="Center" />
-        </Grid>
+                <TextBlock Text="Diagnostic Odds Ratio" Grid.Row="0" Style="{StaticResource NameBlock}" />
+                <TextBlock x:Name="BalancedAccuracy" Grid.Row="1" Style="{StaticResource ScoreBlock}"
+                       Text="{Binding BalancedAccuracy, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+        </Border>
 
         <!-- F1 score -->
-        <Grid Grid.Row="6" Grid.Column="2">
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-            </Grid.RowDefinitions>
+        <Border Grid.Row="6" Grid.Column="2" Style="{StaticResource MatrixElementBorder}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
 
-            <TextBlock Text="F1 Score" Grid.Row="0"  FontSize="16"
-                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                       TextAlignment="Center" TextWrapping="Wrap"/>
-
-            <TextBlock 
-                x:Name="F1Score" Grid.Row="1"
-                Text="{Binding F1Score, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" 
-                FontSize="24" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                Background="Transparent" TextAlignment="Center" />
-        </Grid>
+                <TextBlock Text="F1 Score" Grid.Row="0" Style="{StaticResource NameBlock}" />
+                <TextBlock x:Name="F1Score" Grid.Row="1" Style="{StaticResource ScoreBlock}"
+                       Text="{Binding F1Score, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+        </Border>
 
         <!-- Fowlkes-Mallows index -->
-        <Grid Grid.Row="6" Grid.Column="3">
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-            </Grid.RowDefinitions>
+        <Border Grid.Row="6" Grid.Column="3" Style="{StaticResource MatrixElementBorder}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
 
-            <TextBlock Text="Fowlkes-Mallows index" Grid.Row="0"  FontSize="16"
-                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                       TextAlignment="Center" TextWrapping="Wrap"/>
-
-            <TextBlock 
-                x:Name="FowlkesMallowsIndex" Grid.Row="1"
-                Text="{Binding FowlkesMallowsIndex, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" 
-                FontSize="24" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                Background="Transparent" TextAlignment="Center" />
-        </Grid>
+                <TextBlock Text="Fowlkes-Mallows index" Grid.Row="0" Style="{StaticResource NameBlock}" />
+                <TextBlock x:Name="FowlkesMallowsIndex" Grid.Row="1" Style="{StaticResource ScoreBlock}"
+                       Text="{Binding FowlkesMallowsIndex, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+        </Border>
 
         <!-- Matthews correlation coefficient -->
-        <Grid Grid.Row="6" Grid.Column="4">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="3*"/>
-                <RowDefinition Height="2*"/>
-            </Grid.RowDefinitions>
+        <Border Grid.Row="6" Grid.Column="4" Style="{StaticResource MatrixElementBorder}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
 
-            <TextBlock Text="Matthews correlation coefficient" Grid.Row="0"  FontSize="16"
-                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                       TextAlignment="Center" TextWrapping="Wrap"/>
-
-            <TextBlock 
-                x:Name="MatthewsCorrelationCoefficient" Grid.Row="1"
-                Text="{Binding MatthewsCorrelationCoefficient, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" 
-                FontSize="24" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                Background="Transparent" TextAlignment="Center" />
-        </Grid>
+                <TextBlock Text="Matthews correlation coefficient" Grid.Row="0" Style="{StaticResource NameBlock}" />
+                <TextBlock x:Name="MatthewsCorrelationCoefficient" Grid.Row="1" Style="{StaticResource ScoreBlock}"
+                       Text="{Binding MatthewsCorrelationCoefficient, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+        </Border>
 
         <!-- Jaccard index -->
-        <Grid Grid.Row="6" Grid.Column="5">
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-            </Grid.RowDefinitions>
+        <Border Grid.Row="6" Grid.Column="5" Style="{StaticResource MatrixElementBorder}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
 
-            <TextBlock Text="Jaccard index" Grid.Row="0"  FontSize="16"
-                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                       TextAlignment="Center" TextWrapping="Wrap"/>
-
-            <TextBlock 
-                x:Name="JaccardIndex" Grid.Row="1"
-                Text="{Binding JaccardIndex, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" 
-                FontSize="24" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" 
-                Background="Transparent" TextAlignment="Center" />
-        </Grid>
+                <TextBlock Text="Jaccard index" Grid.Row="0" Style="{StaticResource NameBlock}" />
+                <TextBlock x:Name="JaccardIndex" Grid.Row="1" Style="{StaticResource ScoreBlock}"
+                       Text="{Binding JaccardIndex, StringFormat=F4, UpdateSourceTrigger=PropertyChanged}" />
+            </Grid>
+        </Border>
 
     </Grid>
 </Window>

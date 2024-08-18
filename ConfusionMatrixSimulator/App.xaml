@@ -4,6 +4,12 @@
              xmlns:local="clr-namespace:ConfusionMatrixSimulator"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/TextBlockStyles.xaml" />
+                <ResourceDictionary Source="Styles/TextBoxStyles.xaml" />
+                <ResourceDictionary Source="Styles/BorderStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
